@@ -1,0 +1,33 @@
+[submodule "generator-bitmate-angular1"]
+	path = generator-bitmate-angular1
+	url = git@github.com:oligibson/generator-bitmate-angular1.git
+[submodule "generator-bitmate-express"]
+	path = generator-bitmate-express
+	url = git@github.com:oligibson/generator-bitmate-express.git
+[submodule "bitmate-generator"]
+	path = bitmate-generator
+	url = git@github.com:oligibson/bitmate-generator.git
+[submodule "generator-bitmate-grunt"]
+	path = generator-bitmate-grunt
+	url = git@github.com:oligibson/generator-bitmate-grunt.git
+[submodule "generator-bitmate-web"]
+	path = generator-bitmate-web
+	url = git@github.com:oligibson/generator-bitmate-web.git
+[submodule "generator-bitmate-gulp"]
+	path = generator-bitmate-gulp
+	url = git@github.com:oligibson/generator-bitmate-gulp.git
+[submodule "generator-bitmate-karma"]
+	path = generator-bitmate-karma
+	url = git@github.com:oligibson/generator-bitmate-karma.git
+[submodule "generator-bitmate-bower"]
+	path = generator-bitmate-bower
+	url = git@github.com:oligibson/generator-bitmate-bower.git
+[submodule "generator-bitmate-mocha"]
+	path = generator-bitmate-mocha
+	url = git@github.com:oligibson/generator-bitmate-mocha.git
+[submodule "generator-bitmate-browsersync"]
+	path = generator-bitmate-browsersync
+	url = git@github.com:oligibson/generator-bitmate-browsersync.git
+[submodule "generator-bitmate-eslint"]
+	path = generator-bitmate-eslint
+	url = git@github.com:oligibson/generator-bitmate-eslint.git

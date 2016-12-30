@@ -1,0 +1,9 @@
+node_modules
+test/deps
+test/work
+*.creds.json
+dist
+.DS_Store
+.idea
+/tests/deps
+/tests/work
