@@ -7,7 +7,7 @@ const gulp = require('./helpers/gulp-helper');
 const yeoman = require('./helpers/yeoman-helper');
 const unit = require('./helpers/unit-helper');
 const linter = require('./helpers/linter-helper');
-
+const jsdom = require('./helpers/jsdom-helper');
 
 describe('BitMate integration tests with jsdom', function () {
     this.timeout(0);
@@ -15,7 +15,7 @@ describe('BitMate integration tests with jsdom', function () {
     const combinations = product([
         ['angular1'],
         ['bower'],
-        // ['babel', 'js', 'typescript']
+        ['babel']
     ]);
 
     combinations.forEach(combination => {
@@ -25,7 +25,7 @@ describe('BitMate integration tests with jsdom', function () {
             runner: 'gulp',
             modules: combination[1],
             css: 'less',
-            js: 'babel',
+            js: combination[2],
             html: 'html'
         };
         // need to add filter for client options...
@@ -46,6 +46,12 @@ describe('BitMate integration tests with jsdom', function () {
             it('run "gulp test"', function * () {
                 const result = yield gulp.test();
                 unit.unitTests(result);
+            });
+
+            it('run "gulp serve" and e2e on number of Techs listed', function * () {
+                const url = yield gulp.serve();
+                yield jsdom.run(url);
+                gulp.killServe();
             });
 
             after(() => {
