@@ -20,7 +20,7 @@ describe('BitMate integration tests with jsdom', function () {
 
     combinations.forEach(combination => {
         const options = {
-            server: 'express',
+            server: 'none',
             client: combination[0],
             runner: 'gulp',
             modules: combination[1],
@@ -32,9 +32,8 @@ describe('BitMate integration tests with jsdom', function () {
         options.router = 'uirouter';
         options.styling = 'bootstrap';
 
-        describe('Test with....', function () {
+        describe(`tests with ${options.client}, ${options.modules}, ${options.js}`, function () {
             before(function * () {
-                // console.log(`travis_fold:start:${options.framework}-${options.modules}-${options.js}`);
                 yield yeoman.prepare();
                 yield yeoman.run(options);
             });
@@ -48,14 +47,20 @@ describe('BitMate integration tests with jsdom', function () {
                 unit.unitTests(result);
             });
 
-            it('run "gulp serve" and e2e on number of Techs listed', function * () {
+            it('run "gulp serve" and e2e on Header', function * () {
                 const url = yield gulp.serve();
                 yield jsdom.run(url);
                 gulp.killServe();
             });
 
+            it('run "gulp serve:dist" and e2e on Header', function * () {
+                const url = yield gulp.serveDist();
+                yield jsdom.run(url);
+                gulp.killServe();
+            });
+
             after(() => {
-                // console.log(`travis_fold:end:${options.framework}-${options.modules}-${options.js}`);
+                console.log(`tests with ${options.client}, ${options.modules}, ${options.js} completed`);
             });
         });
     });

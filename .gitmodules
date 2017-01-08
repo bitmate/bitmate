@@ -31,3 +31,6 @@
 [submodule "generator-bitmate-eslint"]
 	path = generator-bitmate-eslint
 	url = git@github.com:oligibson/generator-bitmate-eslint.git
+[submodule "generator-bitmate-react"]
+	path = generator-bitmate-react
+	url = git@github.com:oligibson/generator-bitmate-react.git
