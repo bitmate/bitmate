@@ -22,10 +22,12 @@
     "cross-spawn": "^5.0.1",
     "eslint": "^3.5.0",
     "eslint-config-angular": "^0.5.0",
+    "eslint-config-xo-react": "^0.6.0",
     "eslint-config-xo-space": "^0.12.0",
     "eslint-plugin-angular": "^1.3.0",
     "eslint-plugin-babel": "^3.1.0",
     "eslint-plugin-html": "^1.5.2",
+    "eslint-plugin-react": "^4.3.0",
     "globby": "^6.0.0",
     "jsdom": "swiip/jsdom#zonejs-compat-usable",
     "lodash": "^4.17.2",
@@ -35,6 +37,7 @@
     "through2-spy": "^2.0.0",
     "toposort": "^1.0.0",
     "tslint": "^3.7.4",
+    "typescript": "^2.0.3",
     "yeoman-test": "^1.6.0"
   },
   "scripts": {

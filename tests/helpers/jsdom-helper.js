@@ -98,7 +98,7 @@ exports.testForHeader = function testTechs(window) {
     }, 1000, 20)
         .then(
             elements => {
-                expect(elements.length).to.equal(2);
+                expect(elements.length).to.equal(1);
             },
             error => {
                 console.log('Test techs error', error.stack, error.detail);

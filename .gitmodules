@@ -34,3 +34,6 @@
 [submodule "generator-bitmate-react"]
 	path = generator-bitmate-react
 	url = git@github.com:oligibson/generator-bitmate-react.git
+[submodule "generator-bitmate-angular2"]
+	path = generator-bitmate-angular2
+	url = git@github.com:oligibson/generator-bitmate-angular2.git

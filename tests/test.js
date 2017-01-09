@@ -13,9 +13,9 @@ describe('BitMate integration tests with jsdom', function () {
     this.timeout(0);
 
     const combinations = product([
-        ['angular1'],
+        ['angular1', 'react'],
         ['bower'],
-        ['babel']
+        ['babel'] //'js'
     ]);
 
     combinations.forEach(combination => {
@@ -26,10 +26,10 @@ describe('BitMate integration tests with jsdom', function () {
             modules: combination[1],
             css: 'less',
             js: combination[2],
+            router: combination[0] === 'angular1' ? 'uirouter' : 'router',
             html: 'html'
         };
         // need to add filter for client options...
-        options.router = 'uirouter';
         options.styling = 'bootstrap';
 
         describe(`tests with ${options.client}, ${options.modules}, ${options.js}`, function () {
