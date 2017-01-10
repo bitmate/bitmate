@@ -15,7 +15,7 @@ describe('BitMate integration tests with jsdom', function () {
     const combinations = product([
         ['angular1', 'react'],
         ['bower'],
-        ['babel'] //'js'
+        ['babel', 'js']
     ]);
 
     combinations.forEach(combination => {
