@@ -7,9 +7,6 @@
 [submodule "bitmate-generator"]
 	path = bitmate-generator
 	url = git@github.com:oligibson/bitmate-generator.git
-[submodule "generator-bitmate-grunt"]
-	path = generator-bitmate-grunt
-	url = git@github.com:oligibson/generator-bitmate-grunt.git
 [submodule "generator-bitmate-web"]
 	path = generator-bitmate-web
 	url = git@github.com:oligibson/generator-bitmate-web.git
@@ -22,9 +19,6 @@
 [submodule "generator-bitmate-bower"]
 	path = generator-bitmate-bower
 	url = git@github.com:oligibson/generator-bitmate-bower.git
-[submodule "generator-bitmate-mocha"]
-	path = generator-bitmate-mocha
-	url = git@github.com:oligibson/generator-bitmate-mocha.git
 [submodule "generator-bitmate-browsersync"]
 	path = generator-bitmate-browsersync
 	url = git@github.com:oligibson/generator-bitmate-browsersync.git
@@ -34,9 +28,6 @@
 [submodule "generator-bitmate-react"]
 	path = generator-bitmate-react
 	url = git@github.com:oligibson/generator-bitmate-react.git
-[submodule "generator-bitmate-angular2"]
-	path = generator-bitmate-angular2
-	url = git@github.com:oligibson/generator-bitmate-angular2.git
 [submodule "generator-bitmate-webpack"]
 	path = generator-bitmate-webpack
 	url = git@github.com:oligibson/generator-bitmate-webpack.git
