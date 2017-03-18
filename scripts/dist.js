@@ -20,13 +20,13 @@ co(function *() {
     for (const options of combinations.full()) {
       const combinationPath = path.join(__dirname, `../dist/${options.server}-${options.client}-${options.modules}-${options.js}-${options.css}-${options.html}-${options.router}-${options.styling}`);
       yield mkdirp(combinationPath);
-      const fountain = helpers.createGenerator('bitmate-web:app', [generatorPath], null, {
+      const bitmate = helpers.createGenerator('bitmate-web:app', [generatorPath], null, {
         'skipInstall': true,
         'skip-welcome-message': true
       });
-      fountain.env.cwd = combinationPath;
-      helpers.mockPrompt(fountain, options);
-      const run = Promise.promisify(fountain.run.bind(fountain));
+      bitmate.env.cwd = combinationPath;
+      helpers.mockPrompt(bitmate, options);
+      const run = Promise.promisify(bitmate.run.bind(bitmate));
       output.mute();
       yield run();
       output.unmute();
