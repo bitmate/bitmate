@@ -21,8 +21,12 @@ node {
        stage('Setup Environment'){
             sh "npm set registry http://sinopia.bitmate.io"
             sh "npm set progress=false"
-            sh "npm install"
+            sh "npm run unlinkAll"
+            sh "node test/cache/backup-node_modules.js"
+            sh "rm -rf bitmate-generator/ generator-bitmate-*/
+            sh "sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules"
             sh "git submodule update --init --recursive"
+            sh "node test/cache/restore-node_modules.js"
             sh "npm run linkAll"
        }
 
