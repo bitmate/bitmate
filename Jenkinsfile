@@ -23,7 +23,7 @@ node {
             sh "npm set progress=false"
             sh "npm run unlinkAll"
             sh "node test/cache/backup-node_modules.js"
-            sh "rm -rf bitmate-generator/ generator-bitmate-*/
+            sh "rm -rf bitmate-generator/ generator-bitmate-*/"
             sh "sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules"
             sh "git submodule update --init --recursive"
             sh "node test/cache/restore-node_modules.js"
