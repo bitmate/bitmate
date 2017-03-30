@@ -13,10 +13,12 @@ describe('BitMate integration tests with jsdom', function () {
     this.timeout(0);
 
     const combinations = product([
-        ['angular1', 'react'],
+        ['angular1', 'react', 'angular2'],
         ['bower', 'webpack'],
         ['babel', 'js']
-    ]);
+    ])
+    // Angular 2 and Bower are not supported right now
+    .filter(combination => combination[0] !== 'angular2' || combination[1] !== 'bower');
 
     combinations.forEach(combination => {
         const options = {
@@ -24,13 +26,12 @@ describe('BitMate integration tests with jsdom', function () {
             client: combination[0],
             runner: 'gulp',
             modules: combination[1],
-            css: 'less',
+            css: 'scss',
             js: combination[2],
-            router: combination[0] === 'angular1' ? 'uirouter' : 'router',
-            html: 'html'
+            router: combination[0] === 'angular1' ||  combination[0] === 'angular2' ? 'uirouter' : 'router',
+            html: 'html',
+            styling: 'bootstrap'
         };
-        // need to add filter for client options...
-        options.styling = 'bootstrap';
 
         describe(`tests with ${options.client}, ${options.modules}, ${options.js}`, function () {
             before(function * () {

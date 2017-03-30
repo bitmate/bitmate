@@ -34,3 +34,6 @@
 [submodule "generator-bitmate-readme"]
 	path = generator-bitmate-readme
 	url = git@github.com:oligibson/generator-bitmate-readme.git
+[submodule "generator-bitmate-angular2"]
+	path = generator-bitmate-angular2
+	url = git@github.com:oligibson/generator-bitmate-angular2.git
