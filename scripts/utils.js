@@ -55,10 +55,13 @@ exports.readVersion = function *(folder) {
 };
 
 exports.updateSubmoduleVersion = function *(folder, submodule, version) {
-  const regex = new RegExp(`("${submodule}" *: *")((\\^)?\\d+\\.\\d+\\.\\d+)(")`);
+  console.log('version', version);
+  const regex = new RegExp(`("@oligibson\\/${submodule}" *: *")((\\^)?\\d+\\.\\d+\\.\\d+)(")`);
   const filePath = path.join(folder, 'package.json');
   const file = yield fs.readFile(filePath);
   const newFile = file.toString().replace(regex, `$1$3${version}$4`);
+  // const newFile = file.toString().match(regex);
+  console.log(newFile);
   yield fs.writeFile(filePath, newFile);
 };
 

@@ -16,8 +16,9 @@ co(function *() {
             console.log(folder, '➜', 'npm link');
             yield exec('npm', ['link'], {cwd: folder, stdio}).promise;
             for (const sub of dep.deps) {
-                console.log(folder, '➜', `npm link ${sub}`);
-                yield exec('npm', ['link', sub], {cwd: folder, stdio}).promise;
+                console.log(sub);
+                console.log(folder, '➜', `npm link @oligibson/${sub}`);
+                yield exec('npm', ['link', `@oligibson/${sub}`], {cwd: folder, stdio}).promise;
             }
         }
     } catch (e) {

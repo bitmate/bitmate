@@ -6,9 +6,11 @@ const toposort = require('toposort');
 const entryPoint = 'generator-bitmate-web';
 
 function bitmateDeps(dep) {
-    const pkg = require(`../${dep}/package.json`);
+    const name = _.replace(dep, '@oligibson/', '');
+    const pkg = require(`../${name}/package.json`);
     return _.keys(pkg.dependencies)
-        .filter(dep => dep.includes('bitmate'));
+        .filter(name => name.includes('bitmate'))
+        .map(name => _.replace(name, '@oligibson/', ''));
 }
 
 function computeDeps(folder) {
