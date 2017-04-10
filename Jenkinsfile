@@ -19,7 +19,7 @@ node {
        }
 
        stage('Setup Environment'){
-            sh "npm set registry http://sinopia.bitmate.io"
+            sh "echo '//registry.npmjs.org/:_authToken=${env.NPM_TOKEN}' > ~/.npmrc"
             sh "npm set progress=false"
             sh "npm install"
             sh "npm run unlinkAll"
@@ -45,3 +45,4 @@ node {
     }
 
 }
+

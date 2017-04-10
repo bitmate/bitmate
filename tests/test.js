@@ -13,7 +13,7 @@ describe('BitMate integration tests with jsdom', function () {
     this.timeout(0);
 
     const combinations = product([
-        ['angular1', 'react', 'angular2'],
+        ['react', 'angular1', 'angular2'],
         ['bower', 'webpack'],
         ['babel', 'js']
     ])
@@ -30,7 +30,7 @@ describe('BitMate integration tests with jsdom', function () {
             js: combination[2],
             router: combination[0] === 'angular1' ||  combination[0] === 'angular2' ? 'uirouter' : 'router',
             html: 'html',
-            styling: 'bootstrap'
+            styling: 'none'
         };
 
         describe(`tests with ${options.client}, ${options.modules}, ${options.js}`, function () {
