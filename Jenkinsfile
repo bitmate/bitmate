@@ -22,7 +22,7 @@ node {
             sh "echo '//registry.npmjs.org/:_authToken=${env.NPM_TOKEN}' > ~/.npmrc"
             sh "npm set progress=false"
             sh "npm install"
-            sh "npm run unlinkAll"
+            //sh "npm run unlinkAll"
             //sh "node test/cache/backup-node_modules.js"
             sh "rm -rf bitmate-generator/ generator-bitmate-*/"
             sh "git submodule update --init --recursive"
