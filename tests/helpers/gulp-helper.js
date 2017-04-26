@@ -3,11 +3,12 @@
 const exec = require('../../scripts/exec');
 const spy = require('through2-spy');
 const regex = /\[BS\] Access URLs:\n -*\n.*\n *External: ([^\s]*)/;
+const serverRegex = /\[BS\] Proxying: ([^\s]*)/;
 const testRegex = /Finished 'test'/;
 
 let serveProcess = null;
 
-function execServe(task) {
+function execServe(task, options) {
     return new Promise(resolve => {
         try {
             let logs = '';
@@ -18,7 +19,7 @@ function execServe(task) {
             serveProcess.stderr.pipe(process.stderr);
             serveProcess.stdout.pipe(spy(chunk => {
                 logs += chunk.toString();
-                const result = regex.exec(logs);
+                const result = options.server === 'none' ? regex.exec(logs) : serverRegex.exec(logs);
                 if (result !== null) {
                     resolve(result[1]);
                 }
@@ -29,12 +30,12 @@ function execServe(task) {
     });
 }
 
-exports.serve = function serve() {
-    return execServe(['serve']);
+exports.serve = function serve(options) {
+    return execServe(['serve'], options);
 };
 
-exports.serveDist = function serveDist() {
-    return execServe(['serve:dist']);
+exports.serveDist = function serveDist(options) {
+    return execServe(['serve:dist'], options);
 };
 
 exports.killServe = function killServe() {

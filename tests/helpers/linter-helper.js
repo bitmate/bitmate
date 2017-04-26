@@ -2,22 +2,25 @@
 
 const expect = require('chai').expect;
 const path = require('path');
+const workPath = path.join(__dirname, '../../tests/work');
 const globby = require('globby');
 const fs = require('mz/fs');
 const CLIEngine = require('eslint').CLIEngine;
 const cli = new CLIEngine({});
 const Linter = require('tslint');
-const workPath = path.join(__dirname, '../../tests/work');
 
 exports.linterTest = function *(options) {
   exports.eslint();
   if (options.js === 'typescript') {
     yield exports.tslint(options.client);
   }
+  if (options.server !== 'none') {
+    exports.serverLint();
+  }
 };
 
 exports.eslint = () => {
-  const sources = [`${workPath}/conf/**/*.js`, `${workPath}/gulp_tasks/**/*.js`, `${workPath}/client/**/*.js`];
+  const sources = [`${workPath}/conf/**/*.js`, `${workPath}/gulp_tasks/**/*.js`, `${workPath}/client/app/**/*.js`, `${workPath}/client/*.js`];
   const report = cli.executeOnFiles(sources);
   const formatter = cli.getFormatter();
   console.log(formatter(report.results));
@@ -42,4 +45,13 @@ exports.tslint = function *(client) {
     failureCount += result.failureCount;
   }
   expect(failureCount).to.equal(0);
+};
+
+exports.serverLint = () => {
+  const sources = [`${workPath}/server/**/*.js`];
+  const report = cli.executeOnFiles(sources);
+  const formatter = cli.getFormatter();
+  console.log(formatter(report.results));
+
+  expect(report.errorCount).to.equal(0);
 };

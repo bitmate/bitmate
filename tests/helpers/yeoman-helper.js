@@ -11,7 +11,7 @@ const fs = require('mz/fs');
 const generatorPath = path.join(__dirname, '../../generator-bitmate-web/generators/app');
 const workPath = path.join(__dirname, '../../tests/work');
 const depsPath = path.join(__dirname, '../../tests/deps');
-const packageFolders = ['node_modules', 'bower_components'];
+const packageFolders = ['node_modules'];
 
 const testDirectory = Promise.promisify(helpers.testDirectory);
 

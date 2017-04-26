@@ -1,6 +1,6 @@
 const product = require('cartesian-product');
 
-const server = ['none'];
+const server = ['none', 'express'];
 const client = ['react', 'angular1', 'angular2'];
 const modules = ['webpack', 'bower'];
 const js = ['babel', 'js'];

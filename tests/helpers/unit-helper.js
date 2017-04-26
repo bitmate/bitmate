@@ -2,6 +2,12 @@
 
 const expect = require('chai').expect;
 
-exports.unitTests = function (result) {
-    expect(result).to.contain('SUCCESS');
+exports.unitTests = function (result, options) {
+    if (options.client !== 'none'){
+        expect(result).to.contain('SUCCESS');
+    }
+    if (options.server !== 'none'){
+        console.log('Checking Server');
+        expect(result).not.to.contain('failing');
+    }
 };
